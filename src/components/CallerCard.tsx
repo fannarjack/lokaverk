@@ -5,7 +5,7 @@ type Props = {
   image: string;
   data: FieldsType;
 };
-const CallerCard = async ({ image, data }: Props) => {
+const CallerCard = ({ image, data }: Props) => {
   const info = data.metadata.tags.map((meta: string) => meta);
   console.log(info);
   return (

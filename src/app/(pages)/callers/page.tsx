@@ -4,7 +4,7 @@ import Link from "next/link";
 import { client } from "@/utils/client";
 
 const CallersPage = async () => {
-  const entries = await client.getEntries({ content_type: "Callers" });
+  const entries = await client.getEntries({ content_type: "callers" });
   const datas: FieldsType = entries.items;
   console.log(datas);
   return (
