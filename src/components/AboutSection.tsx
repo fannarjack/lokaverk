@@ -3,7 +3,7 @@ import About from "./About";
 
 const AboutSection = () => {
   return (
-    <div className="flex justify-center items-centers gap-5">
+    <div className="flex justify-center  gap-5 mt-16">
       <About />
       <FactGrid />
     </div>

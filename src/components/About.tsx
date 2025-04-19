@@ -1,8 +1,10 @@
 const About = () => {
   return (
-    <div className="flex flex-col w-[50%] gap-5">
-      <h3 className="font-exo text-3xl">Why We Do What We Do</h3>
-      <p className="font-exo text-lg">
+    <div className="flex flex-col w-[45%] gap-8">
+      <h3 className="font-exo text-3xl text-whiteBackground">
+        Why We Do What We Do
+      </h3>
+      <p className="font-exo text-xl text-whiteBackground">
         The crypto space is full of opportunity, but it’s also filled with risks
         especially when it comes to meme coins. With new projects launching
         daily, it’s hard to separate hype from substance and even harder to spot

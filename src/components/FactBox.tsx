@@ -19,7 +19,7 @@ const FactBox = ({
 
       {/* Right border gradient */}
       {borderRight && (
-        <div className="absolute top-0 right-0 w-[2px] h-full bg-gradient-to-b from-blue-500 to-blue-500" />
+        <div className="absolute top-0 right-0 w-[2px] h-full bg-gradient-to-b from-whiteBackground to-whiteBackground" />
       )}
 
       {/* Bottom border gradient */}
