@@ -2,12 +2,12 @@ import Navbar from "@/components/Navbar";
 import Link from "next/link";
 const HeroSection = () => {
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full h-screen overflow-hidden ">
       <video
         autoPlay
         muted
         loop
-        className="absolute top-0 left-0 w-full h-[80%] object-cover z-[-2] rotate-180"
+        className="absolute top-0 left-0 w-full h-[90%] object-cover z-[-2] rotate-180"
       >
         <source src="/herosectionvideo.mp4" type="video/mp4" />
       </video>
