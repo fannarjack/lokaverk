@@ -25,7 +25,7 @@ const Navbar = () => {
       </div>
 
       <div className="md:hidden flex mr-8">
-        <button onClick={() => setIsOpen(!isOpen)}>
+        <button className="cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
