@@ -13,7 +13,8 @@ const HeroSection = () => {
       </video>
       <div className="absolute top-0 left-0 w-full h-full bg-black opacity-40 z-[-1] " />
       <Navbar />
-      <div className="w-full pl-4 sm:pl-8 md:pl-[120px] mx-auto md:mx-0 text-center md:text-left mt-40 sm:mt-32 lg:mt-60">
+
+      <div className="w-full pl-4 sm:pl-8 md:pl-[120px] mx-auto md:mx-0 text-center md:text-left mt-60 sm:mt-60 lg:mt-60">
         <h1 className="text-6xl font-semibold font-orbitron pb-8 text-whiteBackground ">
           Cut Through the Noice
         </h1>
@@ -23,7 +24,7 @@ const HeroSection = () => {
           that <span className="font-bold">matter</span>, from people <br />
           who actually <span className="font-bold">deliver</span>.
         </p>
-        <div className="my-11 flex gap-6">
+        <div className="my-11 flex flex-col sm:flex-row flex-wrap gap-4 justify-center md:justify-start items-center md:items-start">
           <Link href="/articles">
             <button className="inline-block bg-white text-black px-8 py-4 rounded-md font-semibold hover:bg-gray-200 transition cursor-pointer">
               Articles
