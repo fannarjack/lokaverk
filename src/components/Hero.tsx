@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import Link from "next/link";
+
 const HeroSection = () => {
   return (
     <div className="relative w-full h-screen overflow-hidden ">
@@ -34,6 +34,24 @@ const HeroSection = () => {
 };
 export default HeroSection;
 /*
+
+===================
+Buttons on hero
+===================
+<div className="my-11 flex flex-col sm:flex-row flex-wrap gap-4 justify-center md:justify-start items-center md:items-start">
+  <Link href="/articles">
+    <button className="inline-block bg-white text-black px-8 py-4 rounded-md font-semibold hover:bg-gray-200 transition cursor-pointer">
+      Articles
+    </button>
+  </Link>
+  <Link href="/callers">
+    <button className="inline-block bg-white text-black px-8 py-4 rounded-md font-semibold hover:bg-gray-200 transition cursor-pointer">
+      Callers
+    </button>
+  </Link>
+</div>
+===================
+===================
 <div className="relative z-10 text-white h-full flex items-center">
   <div className="w-full pl-4 sm:pl-8 md:pl-[120px] max-w-[600px] mx-auto md:mx-0 text-center md:text-left">
     <h1 className="text-6xl font-semibold font-orbitron pb-8  ">
