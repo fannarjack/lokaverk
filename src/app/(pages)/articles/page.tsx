@@ -7,6 +7,11 @@ import Footer from "@/components/Footer";
 import MediumHero from "@/components/Herosections/MediumHero";
 
 const ArticlesPage = async () => {
+  /*
+  =============================
+  API Contentful call
+  =============================
+  */
   const entries = await client.getEntries({ content_type: "blogPost" });
   const datas: FieldsType = entries.items;
 
@@ -21,6 +26,7 @@ const ArticlesPage = async () => {
         }}
         imageSrc="/SecondHero.png"
       />
+      <div className="flex justify-center gap-5 my-20"></div>
       <div className="grid grid-cols-1 md:grid-cols-2">
         {datas.map((data: FieldsType) => {
           const image = `http:${data.fields.articlePicture?.fields.file.url}`;
