@@ -13,7 +13,7 @@ const CallersPage = async () => {
         const image = `http:${data.fields.articlePicture?.fields.file.url}`;
         return (
           <Link key={data.sys.id} href={data.sys.id}>
-            <CallerCard image={image} data={data} fill />
+            {/*<CallerCard image={image} data={data} fill />*/}
           </Link>
         );
       })}
