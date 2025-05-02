@@ -10,10 +10,9 @@ const CallersPage = async () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2">
       {datas.map((data: FieldsType) => {
-        const image = `http:${data.fields.articlePicture?.fields.file.url}`;
         return (
           <Link key={data.sys.id} href={data.sys.id}>
-            {/*<CallerCard image={image} data={data} fill />*/}
+            <CallerCard data={data} />
           </Link>
         );
       })}
