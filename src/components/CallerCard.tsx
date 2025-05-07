@@ -6,7 +6,13 @@ import React from "react";
 type CallerFields = {
   nameOfCaller: string;
   socials?: {
-    platform: string;
+    platform: {
+      fields: {
+        file: {
+          url: string;
+        };
+      };
+    };
     link: string;
   }[];
   successRate?: number;
@@ -44,6 +50,29 @@ const CallerCard = ({
           <h2 className="text-xl w-9/12 ml-5 font-exo text-whiteBackground">
             {nameOfCaller}
           </h2>
+          <div className="flex items-center space-x-2 ml-auto">
+            {socials?.map((social, index) => {
+              const iconUrl = social?.platform?.fields?.file?.url;
+              const socialLink = social?.link;
+
+              return (
+                <Link
+                  key={index}
+                  href={socialLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    src={`https:${iconUrl}`}
+                    alt="social icon"
+                    width={20}
+                    height={20}
+                    className="w-5 h-5"
+                  />
+                </Link>
+              );
+            })}
+          </div>
         </div>
         {/*
           ==============================================
