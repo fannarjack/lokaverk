@@ -6,13 +6,16 @@ import React from "react";
 type CallerFields = {
   nameOfCaller: string;
   socials?: {
-    platform: {
-      fields: {
-        file: {
-          url: string;
+    fields: {
+      socialIcon: {
+        fields: {
+          file: {
+            url: string;
+          };
         };
       };
     };
+
     link: string;
   }[];
   successRate?: number;
@@ -47,32 +50,34 @@ const CallerCard = ({
           <div className="w-20 h-20 rounded-full bg-gray-700 flex items-center justify-center text-2xl font-bold mb-4">
             {getInitials(nameOfCaller)}
           </div>
-          <h2 className="text-xl w-9/12 ml-5 font-exo text-whiteBackground">
+          <h2 className="text-xl  ml-5 font-exo text-whiteBackground">
             {nameOfCaller}
           </h2>
-          <div className="flex items-center space-x-2 ml-auto">
-            {socials?.map((social, index) => {
-              const iconUrl = social?.platform?.fields?.file?.url;
-              const socialLink = social?.link;
 
-              return (
-                <Link
-                  key={index}
+          {socials?.map((social, index) => {
+            const socialLink = social?.link;
+            const iconUrl = social?.fields?.socialIcon?.fields?.file.url;
+            console.log("social:", social.fields.socialIcon);
+            if (!iconUrl) return null;
+
+            return (
+              <div key={index} className="flex mt-1.5 ml-2">
+                <a
                   href={socialLink}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="cursor-pointer "
                 >
                   <Image
                     src={`https:${iconUrl}`}
                     alt="social icon"
-                    width={20}
-                    height={20}
-                    className="w-5 h-5"
+                    width={18}
+                    height={18}
                   />
-                </Link>
-              );
-            })}
-          </div>
+                </a>
+              </div>
+            );
+          })}
         </div>
         {/*
           ==============================================
@@ -81,11 +86,15 @@ const CallerCard = ({
         */}
         <div className="mt-5 text-sm text-gray-300 flex justify-around font-exo px-6">
           <div className="bg-[#3A3A3A] w-full mr-2 py-5">
-            <p className="ml-2 pb-2 text-whiteBackground">Success Rate</p>
+            <p className="ml-2 pb-2 text-whiteBackground">
+              Success Rate - <span className="text-xs italic">7 Days</span>
+            </p>
             <p className="text-xl text-[#7687FF]  ml-4 h-5">{successRate}%</p>
           </div>
           <div className="bg-[#3A3A3A] w-full rounded-sm flex flex-col ml-2 h-full py-5 ">
-            <p className="ml-2 pb-2 text-whiteBackground">Median Return</p>
+            <p className="ml-2 pb-2 text-whiteBackground">
+              Median Return - <span className="text-xs italic">7 Days</span>
+            </p>
             <p className="text-xl text-[#7687FF]  ml-4 ">{medianReturn}%</p>
           </div>
         </div>

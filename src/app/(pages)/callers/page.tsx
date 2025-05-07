@@ -6,9 +6,12 @@ import MediumHero from "@/components/Herosections/MediumHero";
 import Footer from "@/components/Footer";
 
 const CallersPage = async () => {
-  const entries = await client.getEntries({ content_type: "callers" });
+  const entries = await client.getEntries({
+    content_type: "callers",
+    include: 2,
+  });
   const datas: FieldsType = entries.items;
-  console.log(datas);
+
   return (
     <>
       <MediumHero
