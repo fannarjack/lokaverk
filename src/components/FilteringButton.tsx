@@ -1,14 +1,15 @@
 type ButtonText = {
   text: string;
-  onClick: (category: string) => void;
+  onClick: () => void;
+  isActive?: boolean;
 };
 
-const FilteringButton = ({ text, onClick }: ButtonText) => {
+const FilteringButton = ({ text }: ButtonText) => {
   return (
-    <div className="text-whiteBackground">
+    <div className="text-whiteBackground py-5 pl-5">
       <button
-        onClick={() => onClick(text)}
-        className="bg-[#3A3A3A] px-5 py-3 cursor-pointer rounded-lg hover:bg-[#505050] transition"
+        /*onClick={() => onClick()}*/
+        className="bg-[#3A3A3A] px-4 py-3 cursor-pointer rounded-lg hover:bg-[#505050] transition"
       >
         {text}
       </button>

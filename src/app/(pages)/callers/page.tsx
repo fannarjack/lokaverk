@@ -1,17 +1,17 @@
-import CallerCard from "@/components/CallerCard";
 import { FieldsType } from "contentful";
 
 import { client } from "@/utils/client";
 import MediumHero from "@/components/Herosections/MediumHero";
 import Footer from "@/components/Footer";
 
+import MainCaller from "@/components/MainCaller";
+
 const CallersPage = async () => {
   const entries = await client.getEntries({
     content_type: "callers",
-    include: 2,
   });
   const datas: FieldsType = entries.items;
-
+  console.log(datas);
   return (
     <>
       <MediumHero
@@ -22,20 +22,9 @@ const CallersPage = async () => {
           bold2: "Results.",
         }}
       />
-      <div className="grid grid-cols-1 md:grid-cols-2">
-        {datas.map((data: FieldsType) => {
-          return (
-            <div key={data.sys.id}>
-              <CallerCard
-                nameOfCaller={data.fields.nameOfCaller}
-                socials={data.fields.socials}
-                successRate={data.fields.successRate}
-                medianReturn={data.fields.medianReturn}
-              />
-            </div>
-          );
-        })}
-      </div>
+      <main className="mx-9">
+        <MainCaller datas={datas} />
+      </main>
       <Footer />
     </>
   );
