@@ -1,4 +1,8 @@
-const SearchBar = () => {
+type SearchProps = {
+  onSearchChange?: (value: string) => void;
+};
+
+const SearchBar = ({ onSearchChange }: SearchProps) => {
   return (
     <form className="max-w-md pl-5 pt-5 font-exo">
       <label
@@ -18,9 +22,9 @@ const SearchBar = () => {
           >
             <path
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
             />
           </svg>
@@ -31,6 +35,7 @@ const SearchBar = () => {
           className="block font-exo w-full p-4 ps-10 text-sm text-whiteBackground border border-[#3A3A3A] rounded-lg bg-[#3A3A3A] focus:ring-[#7687FF] focus:border-[#7687FF]  "
           placeholder="Search Callers..."
           required
+          onChange={(event) => onSearchChange?.(event.target.value)}
         />
       </div>
     </form>

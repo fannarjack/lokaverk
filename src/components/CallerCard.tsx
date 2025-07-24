@@ -20,6 +20,8 @@ type CallerFields = {
   }[];
   successRate?: number;
   medianReturn?: number;
+  numberOfCalls?: number;
+  isVerified?: boolean;
 };
 
 /*adding props */
@@ -28,6 +30,8 @@ const CallerCard = ({
   socials,
   successRate,
   medianReturn,
+  numberOfCalls,
+  isVerified,
 }: CallerFields) => {
   const getInitials = (name: string) => {
     if (!name) return "???";
@@ -51,35 +55,57 @@ const CallerCard = ({
           <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center text-2xl font-bold mb-4">
             {getInitials(nameOfCaller)}
           </div>
-          <h2 className="text-xl  ml-5 font-exo text-whiteBackground">
-            {nameOfCaller}
-          </h2>
 
-          {socials?.map((social, index) => {
-            const socialLink = social?.link;
-            const iconUrl = social?.fields?.socialIcon?.fields?.file.url;
-            console.log("social:", social.fields.socialIcon);
-            if (!iconUrl) return null;
+          {/* Right side: vertical flex container */}
+          <div className="flex flex-col justify-between ml-5 h-20 flex-grow">
+            {/* Top row: name and socials */}
+            <div className="flex items-center">
+              <h2 className="text-xl font-exo text-whiteBackground">
+                {nameOfCaller}
+              </h2>
+              <div className="flex ml-4">
+                {socials?.map((social, index) => {
+                  const socialLink = social?.link;
+                  const iconUrl = social?.fields?.socialIcon?.fields?.file.url;
+                  if (!iconUrl) return null;
 
-            return (
-              <div key={index} className="flex mt-1.5 ml-2">
-                <a
-                  href={socialLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="cursor-pointer h-fit"
-                >
-                  <Image
-                    src={`https:${iconUrl}`}
-                    alt="social icon"
-                    width={18}
-                    height={18}
-                  />
-                </a>
+                  return (
+                    <div key={index} className="flex ml-2">
+                      <a
+                        href={socialLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="cursor-pointer"
+                      >
+                        <Image
+                          src={`https:${iconUrl}`}
+                          alt="social icon"
+                          width={18}
+                          height={18}
+                        />
+                      </a>
+                    </div>
+                  );
+                })}
               </div>
-            );
-          })}
+            </div>
+
+            {/* Bottom row: calls and verified badges */}
+            <div className="flex space-x-2">
+              {numberOfCalls !== undefined && (
+                <span className="bg-[#3A3A3A] text-whiteBackground text-xs px-4 py-2 rounded-full">
+                  {numberOfCalls} Calls
+                </span>
+              )}
+              {isVerified && (
+                <span className="bg-[rgba(0,24,192,0.4)] border border-[#1D39FF] text-whiteBackground text-xs px-4 py-2 rounded-full">
+                  Verified
+                </span>
+              )}
+            </div>
+          </div>
         </div>
+
         {/*
           ==============================================
           next section - Success Rate and Median Return

@@ -10,8 +10,8 @@ const CallersPage = async () => {
   const entries = await client.getEntries({
     content_type: "callers",
   });
-  const datas: FieldsType = entries.items;
-  console.log(datas);
+  const datas: FieldsType[] = entries.items;
+
   return (
     <>
       <MediumHero
