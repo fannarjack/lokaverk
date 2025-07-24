@@ -1,5 +1,5 @@
 /*import Image from "next/image";*/
-import Navbar from "../Navbar";
+import Navbar from '../Navbar';
 
 type Props = {
   content: {
@@ -8,7 +8,7 @@ type Props = {
     line2: string;
     bold2: string;
   };
-  /*imageSrc?: string;*/
+  imageSrc?: string;
 };
 
 const MediumHero = ({ content /*imageSrc = "/SecondHero.png"*/ }: Props) => {
