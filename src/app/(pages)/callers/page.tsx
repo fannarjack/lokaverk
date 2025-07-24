@@ -1,23 +1,32 @@
-import CallerCard from "@/components/CallerCard";
 import { FieldsType } from "contentful";
-import Link from "next/link";
+
 import { client } from "@/utils/client";
+import MediumHero from "@/components/Herosections/MediumHero";
+import Footer from "@/components/Footer";
+
+import MainCaller from "@/components/MainCaller";
 
 const CallersPage = async () => {
-  const entries = await client.getEntries({ content_type: "callers" });
-  const datas: FieldsType = entries.items;
-  console.log(datas);
+  const entries = await client.getEntries({
+    content_type: "callers",
+  });
+  const datas: FieldsType[] = entries.items;
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2">
-      {datas.map((data: FieldsType) => {
-        const image = `http:${data.fields.articlePicture?.fields.file.url}`;
-        return (
-          <Link key={data.sys.id} href={data.sys.id}>
-            <CallerCard image={image} data={data} />
-          </Link>
-        );
-      })}
-    </div>
+    <>
+      <MediumHero
+        content={{
+          line1: "Reliable",
+          bold1: " Callers.",
+          line2: "Transparent ",
+          bold2: "Results.",
+        }}
+      />
+      <main className="mx-9">
+        <MainCaller datas={datas} />
+      </main>
+      <Footer />
+    </>
   );
 };
 export default CallersPage;

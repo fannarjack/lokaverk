@@ -6,7 +6,7 @@ const InfoSection = () => {
       <h2 className="text-3xl mt-16 mb-8 text-whiteBackground">
         Why Choose CoinWave
       </h2>
-      <div className="flex gap-6">
+      <div className="flex gap-6 flex-wrap  ">
         <InfoCard
           icon="/icons/performanceIcon.svg"
           title="Performance Tracking"

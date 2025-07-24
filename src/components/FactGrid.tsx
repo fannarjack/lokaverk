@@ -2,7 +2,7 @@ import FactBox from "./FactBox";
 
 const FactGrid = () => {
   return (
-    <div className="w-[45%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 ] ">
+    <div className=" grid grid-cols-2 lg:grid-cols-2 flex-1 ">
       <FactBox
         title="50%+"
         description="Meme-coins are considered scams"

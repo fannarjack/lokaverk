@@ -1,6 +1,6 @@
 import AboutSection from "@/components/AboutSection";
 import Footer from "@/components/Footer";
-import HeroSection from "@/components/Hero";
+import HeroSection from "@/components/Herosections/Hero";
 import InfoSection from "@/components/InfoSection";
 
 export default function Home() {
